@@ -1,8 +1,11 @@
-
+databaseChangeLog:
+  - preConditions:
+      - dbms:
+          type: postgresql
   - changeSet:
       id: BOK-001-202109151023
       author: amyasoedov
-      comment: TODO
+      comment: Initial struct
       changes:
         - sqlFile:
             path: BOK-001-202109151023.sql
