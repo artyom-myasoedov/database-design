@@ -8,5 +8,6 @@ databaseChangeLog:
       comment: Initial struct
       changes:
         - sqlFile:
-            path: BOK-001-202109151023.sql
+            path: BOK-001-202109292136.sql
             relativeToChangelogFile: true
+
