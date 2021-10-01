@@ -9,4 +9,3 @@ public class CoursesApplication {
     SpringApplication.run(CoursesApplication.class, args);
   }
 }
-//TODO переделать на школьное расписание, сущности: ученик, учитель, класс, программа, расписание отдельныая таблица с расписанием(временем), расписание  - номера уроков, предметы

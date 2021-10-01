@@ -11,3 +11,13 @@ databaseChangeLog:
             path: BOK-001-202109292136.sql
             relativeToChangelogFile: true
 
+
+  - changeSet:
+      id: BOK-001-202109292222
+      author: amyasoedov
+      comment: Add init data sets
+      changes:
+        - sqlFile:
+            path: BOK-001-202109292222.sql
+            relativeToChangelogFile: true
+
