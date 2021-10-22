@@ -15,7 +15,7 @@ public class ClassEntity {
   private String name;
 
   @Column(name = "class_number")
-  private Integer number;
+  private Integer level;
 
   @ManyToOne
   @JoinColumn(name = "program_id",
@@ -47,12 +47,12 @@ public class ClassEntity {
     this.name = name;
   }
 
-  public Integer getNumber() {
-    return number;
+  public Integer getLevel() {
+    return level;
   }
 
-  public void setNumber(Integer number) {
-    this.number = number;
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 
   public ProgramEntity getProgram() {
