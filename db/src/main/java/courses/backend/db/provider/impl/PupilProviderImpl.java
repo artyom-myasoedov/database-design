@@ -49,12 +49,12 @@ public class PupilProviderImpl implements PupilProvider {
   }
 
   @Override
-  public Page<PupilEntity> findByPupilEntity_Id(Integer classId) {
-    return repository.findByClassEntity_Id(classId);
+  public Page<PupilEntity> findByPupilEntity_Id(Integer classId, Pageable pageable) {
+    return repository.findByClassEntity_Id(classId, pageable);
   }
 
   @Override
-  public Page<PupilEntity> findByPupilEntity_Level(Integer level) {
-    return repository.findByClassEntity_Level(level);
+  public Page<PupilEntity> findByPupilEntity_Level(Integer level, Pageable pageable) {
+    return repository.findByClassEntity_Level(level, pageable);
   }
 }

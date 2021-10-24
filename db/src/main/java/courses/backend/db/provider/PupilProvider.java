@@ -4,8 +4,10 @@ import courses.backend.db.entity.PupilEntity;
 import courses.backend.db.entity.PupilEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+
 
 public interface PupilProvider {
 
@@ -19,7 +21,7 @@ public interface PupilProvider {
 
   Page<PupilEntity> findByFirstNameLikeAndLastNameLike(String firstName, String lastName, Pageable pageable);
 
-  Page<PupilEntity> findByPupilEntity_Id(Integer classId);
+  Page<PupilEntity> findByPupilEntity_Id(Integer classId, Pageable pageable);
 
-  Page<PupilEntity> findByPupilEntity_Level(Integer level);
+  Page<PupilEntity> findByPupilEntity_Level(Integer level, Pageable pageable);
 }

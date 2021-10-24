@@ -12,9 +12,9 @@ public interface PupilRepository extends JpaRepository<PupilEntity, Integer> {
 
   Page<PupilEntity> findByFirstNameLikeAndLastNameLike(String firstName, String lastName, Pageable pageable);
 
-  Page<PupilEntity> findByClassEntity_Id(Integer classId);
+  Page<PupilEntity> findByClassEntity_Id(Integer classId, Pageable pageable);
 
-  Page<PupilEntity> findByClassEntity_Level(Integer level);
+  Page<PupilEntity> findByClassEntity_Level(Integer level, Pageable pageable);
 
 
 }
