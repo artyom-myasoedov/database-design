@@ -1,15 +1,21 @@
-package courses.backend.db.repository;
+package courses.backend.db.provider;
 
 import courses.backend.db.entity.ClassEntity;
 import courses.backend.db.entity.EducationDirection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 
-@Repository
-public interface ClassRepository extends JpaRepository<ClassEntity, Integer> {
+public interface ClassProvider {
+
+  Optional<ClassEntity> findById(Integer classId);
+
+  void deleteById(Integer classId);
+
+  Page<ClassEntity> findAll(Pageable pageable);
+
+  ClassEntity save(ClassEntity entity);
 
   Page<ClassEntity> findByLevel(Integer level, Pageable pageable);
 

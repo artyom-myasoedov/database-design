@@ -1,4 +1,5 @@
 rootProject.name = 'database-design'
 include 'db'
 include 'rest'
+include 'service'
 

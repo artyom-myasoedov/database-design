@@ -11,6 +11,10 @@ public class PupilEntity extends UserEntity {
   @Column(name = "pupil_id")
   private Integer id;
 
+  @ManyToOne
+  @JoinColumn(name = "class_id", referencedColumnName = "class_id")
+  private ClassEntity classEntity;
+
   public PupilEntity() {
     role = Role.PUPIL;
   }
@@ -21,5 +25,13 @@ public class PupilEntity extends UserEntity {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public ClassEntity getClassEntity() {
+    return classEntity;
+  }
+
+  public void setClassEntity(ClassEntity classEntity) {
+    this.classEntity = classEntity;
   }
 }

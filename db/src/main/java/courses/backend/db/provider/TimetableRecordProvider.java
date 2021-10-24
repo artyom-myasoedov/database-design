@@ -1,17 +1,20 @@
-package courses.backend.db.repository;
+package courses.backend.db.provider;
 
-import courses.backend.db.entity.LessonNumber;
-import courses.backend.db.entity.Subject;
-import courses.backend.db.entity.TimetableRecordEntity;
-import courses.backend.db.entity.WeekDay;
+import courses.backend.db.entity.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 
-@Repository
-public interface TimetableRecordRepository extends JpaRepository<TimetableRecordEntity, Integer> {
+public interface TimetableRecordProvider {
+
+  Optional<TimetableRecordEntity> findById(Integer timetableId);
+
+  void deleteById(Integer timetableId);
+
+  Page<TimetableRecordEntity> findAll(Pageable pageable);
+
+  TimetableRecordEntity save(TimetableRecordEntity entity);
 
   Page<TimetableRecordEntity> findByClassEntity_LevelAndClassEntity_Name(Integer level, String name, Pageable pageable);
 
@@ -22,5 +25,4 @@ public interface TimetableRecordRepository extends JpaRepository<TimetableRecord
   Page<TimetableRecordEntity> findBySubject(Subject subject, Pageable pageable);
 
   Page<TimetableRecordEntity> findByWeekDayAndLessonNumber(WeekDay weekDay, LessonNumber lessonNumber, Pageable pageable);
-
 }
