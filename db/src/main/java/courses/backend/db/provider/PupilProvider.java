@@ -11,9 +11,9 @@ import java.util.Optional;
 
 public interface PupilProvider {
 
-  Optional<PupilEntity> findById(Integer classId);
+  Optional<PupilEntity> findById(Integer id);
 
-  void deleteById(Integer classId);
+  void deleteById(Integer id);
 
   Page<PupilEntity> findAll(Pageable pageable);
 
@@ -21,7 +21,7 @@ public interface PupilProvider {
 
   Page<PupilEntity> findByFirstNameLikeAndLastNameLike(String firstName, String lastName, Pageable pageable);
 
-  Page<PupilEntity> findByPupilEntity_Id(Integer classId, Pageable pageable);
+  Page<PupilEntity> findByPupilEntity_ClassId(Integer classId, Pageable pageable);
 
   Page<PupilEntity> findByPupilEntity_Level(Integer level, Pageable pageable);
 }

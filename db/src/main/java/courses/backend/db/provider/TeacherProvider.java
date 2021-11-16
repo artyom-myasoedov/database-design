@@ -11,9 +11,9 @@ import java.util.Optional;
 public interface TeacherProvider {
 
 
-  Optional<TeacherEntity> findById(Integer classId);
+  Optional<TeacherEntity> findById(Integer id);
 
-  void deleteById(Integer classId);
+  void deleteById(Integer id);
 
   Page<TeacherEntity> findAll(Pageable pageable);
 

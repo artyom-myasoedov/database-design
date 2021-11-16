@@ -24,13 +24,13 @@ public class PupilProviderImpl implements PupilProvider {
   }
 
   @Override
-  public Optional<PupilEntity> findById(Integer pupilId) {
-    return repository.findById(pupilId);
+  public Optional<PupilEntity> findById(Integer id) {
+    return repository.findById(id);
   }
 
   @Override
-  public void deleteById(Integer pupilId) {
-    repository.deleteById(pupilId);
+  public void deleteById(Integer id) {
+    repository.deleteById(id);
   }
 
   @Override
@@ -49,7 +49,7 @@ public class PupilProviderImpl implements PupilProvider {
   }
 
   @Override
-  public Page<PupilEntity> findByPupilEntity_Id(Integer classId, Pageable pageable) {
+  public Page<PupilEntity> findByPupilEntity_ClassId(Integer classId, Pageable pageable) {
     return repository.findByClassEntity_Id(classId, pageable);
   }
 

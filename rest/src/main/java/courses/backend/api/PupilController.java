@@ -1,28 +1,24 @@
 package courses.backend.api;
 
-import courses.backend.service.logic.TeacherService;
+import courses.backend.service.logic.PupilService;
 import courses.backend.service.model.PageDto;
-import courses.backend.service.model.TeacherDto;
-
+import courses.backend.service.model.PupilDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.security.auth.Subject;
-import java.util.List;
-
 @RestController
-@RequestMapping(path = "/teacher")
-public class TeacherController {
+@RequestMapping(path = "/pupil")
+public class PupilController {
 
-  private final TeacherService service;
+  private final PupilService service;
 
   @Autowired
-  public TeacherController(TeacherService service) {
+  public PupilController(PupilService service) {
     this.service = service;
   }
 
   @GetMapping(path = "/{id}")
-  TeacherDto findById(@PathVariable Integer id) {
+  PupilDto findById(@PathVariable Integer id) {
     return service.findById(id);
   }
 
@@ -32,24 +28,24 @@ public class TeacherController {
   }
 
   @GetMapping
-  PageDto<TeacherDto> findAll(
+  PageDto<PupilDto> findAll(
     @RequestParam(defaultValue = "1") Integer pageNumber,
     @RequestParam(defaultValue = "5") Integer pageSize) {
     return service.findAll(pageNumber, pageSize);
   }
 
   @PostMapping
-  TeacherDto addPupil(@RequestBody TeacherDto dto) {
+  PupilDto addPupil(@RequestBody PupilDto dto) {
     return service.save(dto);
   }
 
   @PutMapping
-  TeacherDto updatePupil(@RequestBody TeacherDto dto) {
+  PupilDto updatePupil(@RequestBody PupilDto dto) {
     return service.save(dto);
   }
 
   @GetMapping(path = "/byFirstNameAndLastName")
-  PageDto<TeacherDto> findByFirstNameLikeAndLastNameLike(
+  PageDto<PupilDto> findByFirstNameLikeAndLastNameLike(
     @RequestParam String firstName,
     @RequestParam String lastName,
     @RequestParam(defaultValue = "1") Integer pageNumber,
@@ -57,11 +53,19 @@ public class TeacherController {
     return service.findByFirstNameLikeAndLastNameLike(firstName, lastName, pageNumber, pageSize);
   }
 
-  @GetMapping(path = "/bySubjects")
-  PageDto<TeacherDto> findBySubjects(
-    @RequestParam List<Integer> subjects,
+  @GetMapping(path = "/byClassId")
+  PageDto<PupilDto> findByPupilEntity_ClassId(
+    @RequestParam Integer classId,
     @RequestParam(defaultValue = "1") Integer pageNumber,
     @RequestParam(defaultValue = "5") Integer pageSize) {
-    return service.findBySubjects(subjects, pageNumber, pageSize);
+    return service.findByPupilEntity_ClassId(classId, pageNumber, pageSize);
+  }
+
+  @GetMapping(path = "/byLevel")
+  PageDto<PupilDto> findByPupilEntity_Level(
+    @RequestParam Integer level,
+    @RequestParam(defaultValue = "1") Integer pageNumber,
+    @RequestParam(defaultValue = "5") Integer pageSize) {
+    return service.findByPupilEntity_Level(level, pageNumber, pageSize);
   }
 }

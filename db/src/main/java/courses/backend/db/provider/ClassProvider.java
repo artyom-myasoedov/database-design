@@ -9,9 +9,9 @@ import java.util.Optional;
 
 public interface ClassProvider {
 
-  Optional<ClassEntity> findById(Integer classId);
+  Optional<ClassEntity> findById(Integer id);
 
-  void deleteById(Integer classId);
+  void deleteById(Integer id);
 
   Page<ClassEntity> findAll(Pageable pageable);
 

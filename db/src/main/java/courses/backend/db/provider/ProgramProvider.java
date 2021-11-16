@@ -9,9 +9,9 @@ import java.util.Optional;
 
 public interface ProgramProvider {
 
-  Optional<ProgramEntity> findById(Integer programId);
+  Optional<ProgramEntity> findById(Integer id);
 
-  void deleteById(Integer programId);
+  void deleteById(Integer id);
 
   Page<ProgramEntity> findAll(Pageable pageable);
 
