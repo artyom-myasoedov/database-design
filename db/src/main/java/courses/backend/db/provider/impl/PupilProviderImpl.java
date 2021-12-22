@@ -57,4 +57,9 @@ public class PupilProviderImpl implements PupilProvider {
   public Page<PupilEntity> findByPupilEntity_Level(Integer level, Pageable pageable) {
     return repository.findByClassEntity_Level(level, pageable);
   }
+
+  @Override
+  public boolean isUsernameUnique(String username) {
+    return !repository.existsByUsername(username);
+  }
 }

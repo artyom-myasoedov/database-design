@@ -24,8 +24,8 @@ public interface TimetableRecordService {
 
   PageDto<TimetableRecordDto> findByTeacher_FirstNameLikeAndTeacher_LastNameLike(String firstName, String lastName, Integer pageNumber, Integer pageSize);
 
-  PageDto<TimetableRecordDto> findBySubject(Integer subject, Integer pageNumber, Integer pageSize);
+  PageDto<TimetableRecordDto> findBySubject(String subject, Integer pageNumber, Integer pageSize);
 
-  PageDto<TimetableRecordDto> findByWeekDayAndLessonNumber(Integer weekDay, Integer lessonNumber, Integer pageNumber, Integer pageSize);
+  PageDto<TimetableRecordDto> findByWeekDayAndLessonNumber(String weekDay, Integer lessonNumber, Integer pageNumber, Integer pageSize);
 
 }

@@ -86,9 +86,9 @@ public class ProgramServiceImpl implements ProgramService {
   }
 
   @Override
-  public PageDto<ProgramDto> findByDirection(Integer direction, Integer pageNumber, Integer pageSize) {
+  public PageDto<ProgramDto> findByDirection(String direction, Integer pageNumber, Integer pageSize) {
     var values = provider.findByDirection(
-        EducationDirection.fromId(direction).orElseThrow(),
+        EducationDirection.valueOf(direction),
         Pageable.ofSize(pageSize).withPage(pageNumber))
       .map(mapper::fromEntity);
 

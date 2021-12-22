@@ -20,4 +20,5 @@ public interface ClassRepository extends JpaRepository<ClassEntity, Integer> {
   Page<ClassEntity> findByProgram_Direction(EducationDirection direction, Pageable pageable);
 
   Page<ClassEntity> findByName(String name, Pageable pageable);
+
 }

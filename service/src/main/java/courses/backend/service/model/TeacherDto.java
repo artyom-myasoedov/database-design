@@ -2,16 +2,15 @@ package courses.backend.service.model;
 
 import courses.backend.db.entity.Subject;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TeacherDto extends UserDto {
 
-  @NotBlank
   private String education;
 
-  @NotNull
+  @NotNull(message = "subjects-are-null")
   private List<Subject> subjects;
 
   public String getEducation() {
@@ -29,4 +28,9 @@ public class TeacherDto extends UserDto {
   public void setSubjects(List<Subject> subjects) {
     this.subjects = subjects;
   }
+
+  public String getSubjectString() {
+    return subjects.stream().map(Subject::toString).collect(Collectors.joining(",\n"));
+  }
+
 }

@@ -80,9 +80,9 @@ public class TeacherServiceImpl implements TeacherService {
   }
 
   @Override
-  public PageDto<TeacherDto> findBySubjects(List<Integer> subjects, Integer pageNumber, Integer pageSize) {
+  public PageDto<TeacherDto> findBySubjects(List<String> subjects, Integer pageNumber, Integer pageSize) {
     var values = provider.findBySubjects(
-        subjects.stream().map(s -> Subject.fromId(s).orElseThrow()).collect(Collectors.toList()),
+        subjects.stream().map(Subject::valueOf).collect(Collectors.toList()),
         Pageable.ofSize(pageSize).withPage(pageNumber))
       .map(mapper::fromEntity);
 

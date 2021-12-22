@@ -24,4 +24,6 @@ public interface PupilProvider {
   Page<PupilEntity> findByPupilEntity_ClassId(Integer classId, Pageable pageable);
 
   Page<PupilEntity> findByPupilEntity_Level(Integer level, Pageable pageable);
+
+    boolean isUsernameUnique(String username);
 }

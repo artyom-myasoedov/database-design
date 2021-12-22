@@ -34,4 +34,8 @@ public class PupilEntity extends UserEntity {
   public void setClassEntity(ClassEntity classEntity) {
     this.classEntity = classEntity;
   }
+
+  public String getClassInf() {
+    return classEntity.getLevel() + " " + classEntity.getName();
+  }
 }

@@ -51,4 +51,9 @@ public class TeacherProviderImpl implements TeacherProvider {
   public Page<TeacherEntity> findBySubjects(List<Subject> subjects, Pageable pageable) {
     return repository.findBySubjects(subjects, pageable);
   }
+
+  @Override
+  public boolean isUsernameUnique(String username) {
+    return !repository.existsByUsername(username);
+  }
 }

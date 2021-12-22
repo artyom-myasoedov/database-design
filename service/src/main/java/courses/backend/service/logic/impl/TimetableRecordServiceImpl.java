@@ -105,9 +105,9 @@ public class TimetableRecordServiceImpl implements TimetableRecordService {
   }
 
   @Override
-  public PageDto<TimetableRecordDto> findBySubject(Integer subject, Integer pageNumber, Integer pageSize) {
+  public PageDto<TimetableRecordDto> findBySubject(String subject, Integer pageNumber, Integer pageSize) {
     var values = provider.findBySubject(
-        Subject.fromId(subject).orElseThrow(),
+        Subject.valueOf(subject),
         Pageable.ofSize(pageSize).withPage(pageNumber))
       .map(mapper::fromEntity);
 
@@ -119,9 +119,9 @@ public class TimetableRecordServiceImpl implements TimetableRecordService {
   }
 
   @Override
-  public PageDto<TimetableRecordDto> findByWeekDayAndLessonNumber(Integer weekDay, Integer lessonNumber, Integer pageNumber, Integer pageSize) {
+  public PageDto<TimetableRecordDto> findByWeekDayAndLessonNumber(String weekDay, Integer lessonNumber, Integer pageNumber, Integer pageSize) {
     var values = provider.findByWeekDayAndLessonNumber(
-        WeekDay.fromId(weekDay).orElseThrow(), LessonNumber.fromInt(lessonNumber).orElseThrow(),
+        WeekDay.valueOf(weekDay), LessonNumber.fromInt(lessonNumber).orElseThrow(),
         Pageable.ofSize(pageSize).withPage(pageNumber))
       .map(mapper::fromEntity);
 

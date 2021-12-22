@@ -13,16 +13,12 @@ public class TimetableRecordEntity {
 
   @OneToOne
   @JoinColumn(name = "class_id",
-    referencedColumnName = "class_id",
-    updatable = false,
-    insertable = false)
+    referencedColumnName = "class_id")
   private ClassEntity classEntity;
 
   @OneToOne
   @JoinColumn(name = "teacher_id",
-    referencedColumnName = "teacher_id",
-    updatable = false,
-    insertable = false)
+    referencedColumnName = "teacher_id")
   private TeacherEntity teacher;
 
   @Column(name = "day_of_week_id")

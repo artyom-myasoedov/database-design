@@ -40,6 +40,7 @@ public class TimetableRecordProviderImpl implements TimetableRecordProvider {
 
   @Override
   public TimetableRecordEntity save(TimetableRecordEntity entity) {
+    entity.getClassEntity().setId(2);
     return repository.save(entity);
   }
 

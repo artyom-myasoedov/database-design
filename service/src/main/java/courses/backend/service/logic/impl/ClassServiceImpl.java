@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
-import java.util.function.Function;
+
 
 @Service
 public class ClassServiceImpl implements ClassService {
@@ -88,9 +88,9 @@ public class ClassServiceImpl implements ClassService {
   }
 
   @Override
-  public PageDto<ClassDto> findByProgram_Direction(Integer direction, Integer pageNumber, Integer pageSize) {
+  public PageDto<ClassDto> findByProgram_Direction(String direction, Integer pageNumber, Integer pageSize) {
     var values = provider.findByProgram_Direction(
-        EducationDirection.fromId(direction).orElseThrow(),
+        EducationDirection.valueOf(direction),
         Pageable.ofSize(pageSize).withPage(pageNumber))
       .map(mapper::fromEntity);
 
@@ -108,6 +108,17 @@ public class ClassServiceImpl implements ClassService {
 
     return ImmutablePageDto.<ClassDto>builder()
       .pageNumber(pageNumber)
+      .totalPages(values.getTotalPages())
+      .items(values.getContent())
+      .build();
+  }
+
+  @Override
+  public PageDto<ClassEntity> findAllEntities(int i, int i1) {
+    var values = provider.findAll(Pageable.ofSize(i1).withPage(i));
+
+    return ImmutablePageDto.<ClassEntity>builder()
+      .pageNumber(i)
       .totalPages(values.getTotalPages())
       .items(values.getContent())
       .build();

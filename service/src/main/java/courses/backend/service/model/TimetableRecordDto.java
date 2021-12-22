@@ -9,23 +9,23 @@ import javax.validation.constraints.Null;
 
 public class TimetableRecordDto {
 
-  @Null(groups = OnCreate.class)
-  @NotNull(groups = OnUpdate.class)
+  @Null(groups = OnCreate.class, message = "timetableRecordId-is-not-null")
+  @NotNull(groups = OnUpdate.class, message = "timetableRecordId-is-null")
   private Integer id;
 
-  @NotNull
+  @NotNull(message = "classDto-is-null")
   private ClassDto classDto;
 
-  @NotNull
+  @NotNull(message = "teacher-is-null")
   private TeacherDto teacher;
 
-  @NotNull
+  @NotNull(message = "weekDay-is-null")
   private WeekDay weekDay;
 
-  @NotNull
+  @NotNull(message = "subject-is-null")
   private Subject subject;
 
-  @NotNull
+  @NotNull(message = "lessonNumberIsNull")
   private LessonNumber lessonNumber;
 
   public Integer getId() {
@@ -74,5 +74,10 @@ public class TimetableRecordDto {
 
   public void setLessonNumber(LessonNumber lessonNumber) {
     this.lessonNumber = lessonNumber;
+  }
+
+  @Override
+  public String toString() {
+    return subject.getName() + " " + lessonNumber.getString();
   }
 }

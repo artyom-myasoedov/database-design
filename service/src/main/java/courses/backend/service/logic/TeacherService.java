@@ -19,6 +19,6 @@ public interface TeacherService {
 
   PageDto<TeacherDto> findByFirstNameLikeAndLastNameLike(String firstName, String lastName, Integer pageNumber, Integer pageSize);
 
-  PageDto<TeacherDto> findBySubjects(List<Integer> subjects, Integer pageNumber, Integer pageSize);
+  PageDto<TeacherDto> findBySubjects(List<String> subjects, Integer pageNumber, Integer pageSize);
 
 }

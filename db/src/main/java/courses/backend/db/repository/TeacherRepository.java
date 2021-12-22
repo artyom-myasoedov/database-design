@@ -18,5 +18,6 @@ public interface TeacherRepository extends JpaRepository<TeacherEntity, Integer>
   @Query("select t from teachers t where ?1 in (t.subjects)")
   Page<TeacherEntity> findBySubjects(List<Subject> subjects, Pageable pageable);
 
+  boolean existsByUsername(String username);
 
 }

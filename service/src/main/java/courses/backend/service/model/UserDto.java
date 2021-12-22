@@ -8,26 +8,23 @@ import courses.backend.service.model.marker.OnUpdate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
 
 public class UserDto {
 
 
-  @Null(groups = OnCreate.class)
-  @NotNull(groups = OnUpdate.class)
+  @Null(groups = OnCreate.class, message = "userId-is-not-null")
+  @NotNull(groups = OnUpdate.class, message = "userId-is-null")
   private Integer id;
 
-  @NotBlank
+  @NotBlank(message = "username-is-blank")
   private String username;
 
-  @NotBlank
+  @NotBlank(message = "firstname-is-blank")
   private String firstName;
 
-  @NotBlank
+  @NotBlank(message = "lastname-is-blank")
   private String lastName;
 
-  @NotBlank(groups = OnCreate.class)
-  @Size(min = 4, groups = OnCreate.class)
   private String password;
 
   private byte[] photo;

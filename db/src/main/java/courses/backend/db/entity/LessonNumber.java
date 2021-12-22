@@ -52,4 +52,8 @@ public enum LessonNumber {
 
     return Optional.empty();
   }
+
+  public String getString() {
+    return " " + lessonNumber + ": " + start.toString() + " - " + end.toString();
+  }
 }

@@ -22,4 +22,6 @@ public interface TeacherProvider {
   Page<TeacherEntity> findByFirstNameLikeAndLastNameLike(String firstName, String lastName, Pageable pageable);
 
   Page<TeacherEntity> findBySubjects(List<Subject> subjects, Pageable pageable);
+
+    boolean isUsernameUnique(String username);
 }

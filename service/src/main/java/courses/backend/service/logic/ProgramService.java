@@ -17,6 +17,6 @@ public interface ProgramService {
 
   PageDto<ProgramDto> findByLevel(Integer level, ComparisonOperation operation, Integer pageNumber, Integer pageSize);
 
-  PageDto<ProgramDto> findByDirection(Integer direction, Integer pageNumber, Integer pageSize);
+  PageDto<ProgramDto> findByDirection(String direction, Integer pageNumber, Integer pageSize);
 
 }
